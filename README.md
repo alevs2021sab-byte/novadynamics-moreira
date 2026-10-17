@@ -1,1 +1,0 @@
-# novadynamics-moreira
